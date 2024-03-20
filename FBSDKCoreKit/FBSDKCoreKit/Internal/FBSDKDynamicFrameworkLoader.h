@@ -5,6 +5,7 @@
  * This source code is licensed under the license found in the
  * LICENSE file in the root directory of this source tree.
  */
+#define FBSDK_IDFA_DISALLOWED 1
 
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
@@ -35,9 +36,13 @@ FOUNDATION_EXPORT CATransform3D fbsdkdfl_CATransform3DMakeScale(CGFloat sx, CGFl
 FOUNDATION_EXPORT CATransform3D fbsdkdfl_CATransform3DMakeTranslation(CGFloat tx, CGFloat ty, CGFloat tz);
 FOUNDATION_EXPORT CATransform3D fbsdkdfl_CATransform3DConcat(CATransform3D a, CATransform3D b);
 
+#if !FBSDK_IDFA_DISALLOWED
+
 #pragma mark - AdSupport Classes
 
 FOUNDATION_EXPORT Class fbsdkdfl_ASIdentifierManagerClass(void);
+
+#endif
 
 #pragma mark - SafariServices Classes
 
